@@ -39,9 +39,9 @@ RepoRepository {
         final int offset = (page - 1) * limit;
         LiveData<Resource<List<RepoDto>>> liveData = new NetworkBoundResource<List<RepoDto>, List<RepoDto>>() {
             @Override
-            protected void saveCallResult(@NonNull List<RepoDto> fruitResponse) {
-                RepoDto[] arr = new RepoDto[fruitResponse.size()];
-                fruitResponse.toArray(arr);
+            protected void saveCallResult(@NonNull List<RepoDto> response) {
+                RepoDto[] arr = new RepoDto[response.size()];
+                response.toArray(arr);
                 dao.insertAll(arr);
 
             }

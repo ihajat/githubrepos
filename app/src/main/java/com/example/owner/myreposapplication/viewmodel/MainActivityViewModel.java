@@ -26,10 +26,10 @@ public class MainActivityViewModel extends ViewModel {
         public LiveData<Resource<List<RepoDto>>> apply(final Request input) {
             LiveData<Resource<List<RepoDto>>> resourceLiveData = repository.browseRepo(input.page, input.limit);
             final MediatorLiveData<Resource<List<RepoDto>>> mediator = new MediatorLiveData<>();
-            mediator.addSource(resourceLiveData, FruitDtos -> {
-                List<RepoDto> resp = FruitDtos.getData();
+            mediator.addSource(resourceLiveData, repoDtos -> {
+                List<RepoDto> resp = repoDtos.getData();
                 Resource<List<RepoDto>> response = null;
-                switch (FruitDtos.getStatus()) {
+                switch (repoDtos.getStatus()) {
                     case LOADING:
                         response = Resource.loading(resp);
                         break;
@@ -38,7 +38,7 @@ public class MainActivityViewModel extends ViewModel {
                         response = Resource.success(resp);
                         break;
                     case ERROR:
-                        response = Resource.error(FruitDtos.getException(), null);
+                        response = Resource.error(repoDtos.getException(), null);
                         break;
 
                 }
