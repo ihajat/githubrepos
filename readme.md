@@ -18,7 +18,7 @@ Includes pagination.
 Includes a limit to prevent overloading too much data.
 Package Structure
 
-api - bbc service interface, returns a live data object a generic live data with a generic arguments of API response
+api - the network service interface, returns a live data object a generic live data with a generic arguments of API response
 applicaiton - initials DaggerAppComponent and LoggingExceptionHandle
 dao - database related classes including data access objects
 di - dependency injection Dagger 2
