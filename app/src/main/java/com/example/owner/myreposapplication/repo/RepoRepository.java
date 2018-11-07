@@ -10,6 +10,7 @@ import com.example.owner.myreposapplication.dto.RepoDto;
 import com.example.owner.myreposapplication.dto.ApiResponse;
 import com.example.owner.myreposapplication.dto.Resource;
 import com.example.owner.myreposapplication.network.NetworkBoundResource;
+import com.example.owner.myreposapplication.utils.adapters.Constants;
 
 import java.util.List;
 import java.util.concurrent.Executor;
@@ -61,7 +62,7 @@ RepoRepository {
             @NonNull
             @Override
             protected LiveData<ApiResponse<List<RepoDto>>> createCall() {
-                LiveData<ApiResponse<List<RepoDto>>> response = api.getRepoLiveData("ihajat", page, limit);
+                LiveData<ApiResponse<List<RepoDto>>> response = api.getRepoLiveData(Constants.USERNAME, page, limit);
                 return response;
             }
         }.getAsLiveData();

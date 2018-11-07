@@ -69,17 +69,15 @@ public class NetModule {
     @Provides
     @Singleton
     public Interceptor provideInterceptor() {
-        return (Interceptor) (new Interceptor() {
-            public final Response intercept(Chain chain) throws IOException {
-                Request request = chain.request();
+        return (chain -> {
+            Request request = chain.request();
 
-                Request.Builder requestBuilder = request.newBuilder();
-                HttpUrl url = request.url().newBuilder()
-                        .addQueryParameter("format", "json")
-                        .build();
-                Log.d("URL", url.toString());
-                return chain.proceed(request);
-            }
+            Request.Builder requestBuilder = request.newBuilder();
+            HttpUrl url = request.url().newBuilder()
+                    .addQueryParameter("format", "json")
+                    .build();
+            Log.d("URL", url.toString());
+            return chain.proceed(request);
         });
     }
 }
