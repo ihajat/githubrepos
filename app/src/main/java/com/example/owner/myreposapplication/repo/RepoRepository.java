@@ -10,7 +10,7 @@ import com.example.owner.myreposapplication.dto.RepoDto;
 import com.example.owner.myreposapplication.dto.ApiResponse;
 import com.example.owner.myreposapplication.dto.Resource;
 import com.example.owner.myreposapplication.network.NetworkBoundResource;
-import com.example.owner.myreposapplication.utils.adapters.Constants;
+import com.example.owner.myreposapplication.utils.Constants;
 
 import java.util.List;
 import java.util.concurrent.Executor;
